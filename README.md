@@ -1,15 +1,10 @@
-Flashplayer role
-================
+flashplayer-standalone
+======================
 
-LinuxにFlashPlayerのStandalone版をインストールするロール。
+Ansible role to install standalone flashplayer.
 
-前提条件
----------
+Prerequisite
+-------------
 
-- CentOS: 5系であること（5.10で動作確認済み）
-- アーキ: **32bit** 64bitでは動作しない雰囲気
-
-実行方法
-----------
-
-ansibleのロールになっているのでよしなに。
+- CentOS 5 **i686** (tested with 5.10)
+  - It will not run on 64bit.
