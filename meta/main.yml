@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Toshio Takiguchi
+  description: Ansible role to install standalone Flash Player
+  license: Apache
+  min_ansible_version: 1.6
+  platforms:
+  - name: EL
+    versions:
+    - 5
+  categories:
+  - development
+  - web
+  dependencies: []
+
