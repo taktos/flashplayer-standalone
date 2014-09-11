@@ -1,0 +1,30 @@
+- name: Download flashplayer debugger
+  get_url: url=http://fpdownload.macromedia.com/pub/flashplayer/updaters/11/flashplayer_11_sa_debug.i386.tar.gz dest=/tmp/flashplayer_11_sa_debug.i386.tar.gz
+
+- name: Install flashplayer
+  unarchive: src=/tmp/flashplayer_11_sa_debug.i386.tar.gz dest=/usr/local/bin creates=/usr/local/bin/flashplayerdebugger
+
+- name: Create symbolic link of flashplayer
+  file: src=/usr/local/bin/flashplayerdebugger dest=/usr/local/bin/flashplayer owner=root group=root state=link
+
+- name: Install flashplayer dependencies
+  yum: name={{ item }} state=present
+  with_items:
+    - libX11
+    - libXext
+    - libXt
+    - gtk2
+    - glibc
+    - nss
+    - curl
+    - Xvfb
+    - xorg-x11-server-Xvfb
+    - ipa-gothic-fonts
+    - ipa-pgothic-fonts
+    - xorg-x11-fonts-base
+    - xorg-x11-fonts-truetype
+    - xorg-x11-drv-v4l
+    - xorg-x11-xauth
+
+- name: Prepare xvfb-run script
+  copy: src=xvfb-run dest=/usr/local/bin/xvfb-run owner=root group=root mode=0755
